@@ -23,13 +23,6 @@
                         <p class="text-2xl font-bold">{{session('currentQuiz')['currentMcq']}} / {{session('currentQuiz')['totalMcq']}}</p>
                     </div>
                 </div>
-                
-                <!-- Progress Bar -->
-                <!-- <div class="mt-6 bg-white bg-opacity-20 rounded-full h-3 overflow-hidden">
-                    <div class="bg-white h-full rounded-full transition-all duration-500" 
-                         style="width: {{ (session('currentQuiz')['currentMcq'] / session('currentQuiz')['totalMcq']) * 100 }}%">
-                    </div>
-                </div> -->
             </div>
         </div>
 
@@ -50,7 +43,14 @@
                 <form action="/submit-next/{{$mcqData->id}}" method="post" class="p-6">
                     @csrf
                     <input type="hidden" name="id" value="{{$mcqData->id}}">
-                    
+
+                    <!-- 🧩 Error Message -->
+                    @if(session('error'))
+                        <div class="mb-6 px-4 py-3 rounded-lg bg-red-100 border border-red-400 text-red-700 text-center font-semibold shadow-sm">
+                            ⚠️ {{ session('error') }}
+                        </div>
+                    @endif
+
                     <div class="space-y-4">
                         <!-- Option A -->
                         <label class="group flex items-start gap-4 p-5 border-2 border-gray-200 rounded-xl cursor-pointer transition-all duration-200 hover:border-green-400 hover:bg-green-50 hover:shadow-md" for="option_1">
