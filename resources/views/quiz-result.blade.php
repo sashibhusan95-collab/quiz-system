@@ -102,6 +102,7 @@
                             <tr>
                                 <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700 w-20">S. No</th>
                                 <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">Question</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700 w-32">Correct Answer</th>
                                 <th class="px-6 py-4 text-center text-sm font-semibold text-gray-700 w-32">Result</th>
                             </tr>
                         </thead>
@@ -110,6 +111,7 @@
                             <tr class="hover:bg-gray-50 transition-colors duration-150">
                                 <td class="px-6 py-4 text-gray-600 font-medium">{{$key+1}}</td>
                                 <td class="px-6 py-4 text-gray-800">{{$item->question}}</td>
+                                <td class="px-6 py-4 text-gray-800 w-32">{{ strtoupper($item->select_answer) }}</td>
                                 <td class="px-6 py-4 text-center">
                                     @if($item->is_correct)
                                         <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-700">
